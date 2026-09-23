@@ -100,4 +100,4 @@ Once running, navigate to:
 
 ---
 
-Made by [Rohan Laharwnni/https://github.com/rohanlahar)
+Made by [Rohan Laharwani/https://github.com/rohanlahar)
