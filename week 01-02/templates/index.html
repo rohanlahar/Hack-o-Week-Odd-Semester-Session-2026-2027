@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student Record</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-logo">
+                <i class="fa-solid fa-graduation-cap logo-icon"></i>
+                <div class="logo-text">
+                    <h1>Student Registry Portal</h1>
+                    <span>Edit Student Information</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="app-content" style="max-width: 600px; margin: 2rem auto 0 auto;">
+            <div class="card form-card">
+                <div class="card-header">
+                    <h2>Edit Student Details</h2>
+                    <p class="card-subtitle">Updating Record ID: #{{ student.id }}</p>
+                </div>
+                
+                <form action="/edit/{{ student.id }}" method="POST" class="enroll-form">
+                    <div class="form-group">
+                        <label for="student-roll">Roll Number</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-id-card input-icon"></i>
+                            <input type="text" id="student-roll" name="roll_number" value="{{ student.roll_number }}" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="student-name">Full Name</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-user input-icon"></i>
+                            <input type="text" id="student-name" name="name" value="{{ student.name }}" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="student-email">Email Address</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-envelope input-icon"></i>
+                            <input type="email" id="student-email" name="email" value="{{ student.email }}" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="student-phone">Contact Number</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-phone input-icon"></i>
+                            <input type="text" id="student-phone" name="phone" value="{{ student.phone }}" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="student-course">Course Track</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-book input-icon"></i>
+                            <select id="student-course" name="course" required>
+                                <option value="B.Tech Computer Science" {% if student.course == "B.Tech Computer Science" %}selected{% endif %}>B.Tech Computer Science</option>
+                                <option value="B.Tech Information Technology" {% if student.course == "B.Tech Information Technology" %}selected{% endif %}>B.Tech Information Technology</option>
+                                <option value="B.Tech Electronics & Comm." {% if student.course == "B.Tech Electronics & Comm." %}selected{% endif %}>B.Tech Electronics & Comm.</option>
+                                <option value="MCA (Master of Computer Applications)" {% if student.course == "MCA (Master of Computer Applications)" %}selected{% endif %}>MCA (Master of Computer Applications)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="student-semester">Semester / Year</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-calendar-days input-icon"></i>
+                            <select id="student-semester" name="semester" required>
+                                <option value="Semester I (1st Year)" {% if student.semester == "Semester I (1st Year)" %}selected{% endif %}>Semester I (1st Year)</option>
+                                <option value="Semester III (2nd Year)" {% if student.semester == "Semester III (2nd Year)" %}selected{% endif %}>Semester III (2nd Year)</option>
+                                <option value="Semester V (3rd Year)" {% if student.semester == "Semester V (3rd Year)" %}selected{% endif %}>Semester V (3rd Year)</option>
+                                <option value="Semester VII (4th Year)" {% if student.semester == "Semester VII (4th Year)" %}selected{% endif %}>Semester VII (4th Year)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="student-date">Admission Date</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-calendar-check input-icon"></i>
+                            <input type="date" id="student-date" name="admission_date" value="{{ student.admission_date }}" required>
+                        </div>
+                    </div>
+
+                    <div class="form-buttons-row">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa-solid fa-floppy-disk"></i> Save Changes
+                        </button>
+                        <a href="/" class="btn btn-secondary">
+                            <i class="fa-solid fa-xmark"></i> Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </main>
+        
+        <footer class="app-footer">
+            <p>&copy; 2026 Student Registry Portal.</p>
+        </footer>
+    </div>
+</body>
+</html>
