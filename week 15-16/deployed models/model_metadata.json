@@ -1,0 +1,26 @@
+{
+  "model_name": "ClinicalCardiovascularRisk_NumPy_MLP",
+  "version": "1.0.0",
+  "created_at": "2026-10-21T10:36:19.661972",
+  "author": "Dhanish Ladwani",
+  "framework": "NumPy Scratch MLP",
+  "feature_count": 8,
+  "feature_schema": [
+    "age",
+    "resting_bp",
+    "cholesterol",
+    "max_heart_rate",
+    "st_depression",
+    "exercise_angina",
+    "fasting_blood_sugar",
+    "vessels_colored"
+  ],
+  "decision_threshold": 0.5,
+  "performance_metrics": {
+    "test_accuracy": 0.95,
+    "test_f1": 0.9253731343283582,
+    "test_roc_auc": 0.994281045751634
+  },
+  "sha256_pickle": "9eb80becada32932811ce5f293dc37c56e89645169e0cfc7dd7bb24d197b7290",
+  "sha256_joblib": "9678823d247966cf602f1d82a39f9fcf86e7bd16abce5267834a64298128c108"
+}
